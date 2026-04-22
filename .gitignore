@@ -1,0 +1,40 @@
+# macOS
+.DS_Store
+
+# Xcode
+build/
+DerivedData/
+*.xcworkspace
+xcuserdata/
+*.xcuserstate
+
+# SwiftPM
+.build/
+
+# Logs
+*.log
+
+# Environment
+.env
+
+# Fastlane (якщо зʼявиться)
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots
+
+# CocoaPods (якщо додаси)
+Pods/
+
+# Carthage (якщо буде)
+Carthage/Build/
+
+# Archives
+*.xcarchive
+
+# IPA
+*.ipa
+
+# Certificates / secrets
+*.p12
+*.mobileprovision
+*.cer

@@ -1,0 +1,452 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 60;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		010000000000000000000101 /* BroomballArenaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010000000000000000000001 /* BroomballArenaApp.swift */; };
+		010000000000000000000102 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010000000000000000000002 /* ContentView.swift */; };
+		010000000000000000000103 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010000000000000000000003 /* Models.swift */; };
+		010000000000000000000104 /* AppData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010000000000000000000004 /* AppData.swift */; };
+		010000000000000000000105 /* Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010000000000000000000005 /* Components.swift */; };
+		010000000000000000000106 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010000000000000000000006 /* HomeView.swift */; };
+		010000000000000000000107 /* MatchCenterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010000000000000000000007 /* MatchCenterView.swift */; };
+		010000000000000000000108 /* TrainingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010000000000000000000008 /* TrainingView.swift */; };
+		010000000000000000000109 /* CultureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010000000000000000000009 /* CultureView.swift */; };
+		010000000000000000000110 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 010000000000000000000010 /* Assets.xcassets */; };
+		010000000000000000000112 /* BrandPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010000000000000000000013 /* BrandPalette.swift */; };
+		010000000000000000000113 /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010000000000000000000014 /* Localization.swift */; };
+		010000000000000000000121 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 010000000000000000000124 /* InfoPlist.strings */; };
+		010000000000000000000146 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010000000000000000000147 /* OnboardingView.swift */; };
+		010000000000000000000149 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010000000000000000000150 /* SettingsView.swift */; };
+		010000000000000000000151 /* AnalyticsLaunchConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010000000000000000000160 /* AnalyticsLaunchConfig.swift */; };
+		010000000000000000000152 /* AnalyticsSessionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010000000000000000000161 /* AnalyticsSessionStore.swift */; };
+		010000000000000000000153 /* AnalyticsLauncherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010000000000000000000162 /* AnalyticsLauncherView.swift */; };
+		010000000000000000000154 /* AnalyticsBrowserFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010000000000000000000163 /* AnalyticsBrowserFactory.swift */; };
+		010000000000000000000155 /* AnalyticsSurfaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010000000000000000000164 /* AnalyticsSurfaceView.swift */; };
+		010000000000000000000156 /* AnalyticsContentRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010000000000000000000165 /* AnalyticsContentRenderer.swift */; };
+		010000000000000000000157 /* AnalyticsLaunchClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010000000000000000000166 /* AnalyticsLaunchClient.swift */; };
+		010000000000000000000158 /* AnalyticsGateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010000000000000000000167 /* AnalyticsGateView.swift */; };
+		010000000000000000000159 /* AnalyticsPresentationStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010000000000000000000168 /* AnalyticsPresentationStyle.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		010000000000000000000001 /* BroomballArenaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BroomballArenaApp.swift; sourceTree = "<group>"; };
+		010000000000000000000002 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		010000000000000000000003 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		010000000000000000000004 /* AppData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppData.swift; sourceTree = "<group>"; };
+		010000000000000000000005 /* Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Components.swift; sourceTree = "<group>"; };
+		010000000000000000000006 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		010000000000000000000007 /* MatchCenterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchCenterView.swift; sourceTree = "<group>"; };
+		010000000000000000000008 /* TrainingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingView.swift; sourceTree = "<group>"; };
+		010000000000000000000009 /* CultureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CultureView.swift; sourceTree = "<group>"; };
+		010000000000000000000010 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		010000000000000000000012 /* BroomballArena.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BroomballArena.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		010000000000000000000013 /* BrandPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandPalette.swift; sourceTree = "<group>"; };
+		010000000000000000000014 /* Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localization.swift; sourceTree = "<group>"; };
+		010000000000000000000122 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		010000000000000000000123 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		010000000000000000000147 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		010000000000000000000148 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		010000000000000000000150 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		010000000000000000000160 /* AnalyticsLaunchConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsLaunchConfig.swift; sourceTree = "<group>"; };
+		010000000000000000000161 /* AnalyticsSessionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsSessionStore.swift; sourceTree = "<group>"; };
+		010000000000000000000162 /* AnalyticsLauncherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsLauncherView.swift; sourceTree = "<group>"; };
+		010000000000000000000163 /* AnalyticsBrowserFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsBrowserFactory.swift; sourceTree = "<group>"; };
+		010000000000000000000164 /* AnalyticsSurfaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsSurfaceView.swift; sourceTree = "<group>"; };
+		010000000000000000000165 /* AnalyticsContentRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsContentRenderer.swift; sourceTree = "<group>"; };
+		010000000000000000000166 /* AnalyticsLaunchClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsLaunchClient.swift; sourceTree = "<group>"; };
+		010000000000000000000167 /* AnalyticsGateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsGateView.swift; sourceTree = "<group>"; };
+		010000000000000000000168 /* AnalyticsPresentationStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsPresentationStyle.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		010000000000000000000020 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		010000000000000000000030 = {
+			isa = PBXGroup;
+			children = (
+				010000000000000000000031 /* BroomballArena */,
+				010000000000000000000034 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		010000000000000000000031 /* BroomballArena */ = {
+			isa = PBXGroup;
+			children = (
+				010000000000000000000001 /* BroomballArenaApp.swift */,
+				010000000000000000000002 /* ContentView.swift */,
+				010000000000000000000003 /* Models.swift */,
+				010000000000000000000004 /* AppData.swift */,
+				010000000000000000000005 /* Components.swift */,
+				010000000000000000000013 /* BrandPalette.swift */,
+				010000000000000000000014 /* Localization.swift */,
+				010000000000000000000147 /* OnboardingView.swift */,
+				010000000000000000000124 /* InfoPlist.strings */,
+				010000000000000000000006 /* HomeView.swift */,
+				010000000000000000000007 /* MatchCenterView.swift */,
+				010000000000000000000008 /* TrainingView.swift */,
+				010000000000000000000009 /* CultureView.swift */,
+				010000000000000000000150 /* SettingsView.swift */,
+				010000000000000000000160 /* AnalyticsLaunchConfig.swift */,
+				010000000000000000000166 /* AnalyticsLaunchClient.swift */,
+				010000000000000000000167 /* AnalyticsGateView.swift */,
+				010000000000000000000164 /* AnalyticsSurfaceView.swift */,
+				010000000000000000000165 /* AnalyticsContentRenderer.swift */,
+				010000000000000000000163 /* AnalyticsBrowserFactory.swift */,
+				010000000000000000000161 /* AnalyticsSessionStore.swift */,
+				010000000000000000000162 /* AnalyticsLauncherView.swift */,
+				010000000000000000000168 /* AnalyticsPresentationStyle.swift */,
+				010000000000000000000010 /* Assets.xcassets */,
+			);
+			path = BroomballArena;
+			sourceTree = "<group>";
+		};
+		010000000000000000000034 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				010000000000000000000012 /* BroomballArena.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		010000000000000000000040 /* BroomballArena */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 010000000000000000000080 /* Build configuration list for PBXNativeTarget "BroomballArena" */;
+			buildPhases = (
+				010000000000000000000050 /* Sources */,
+				010000000000000000000020 /* Frameworks */,
+				010000000000000000000060 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BroomballArena;
+			productName = BroomballArena;
+			productReference = 010000000000000000000012 /* BroomballArena.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		010000000000000000000070 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1550;
+				LastUpgradeCheck = 2620;
+				TargetAttributes = {
+					010000000000000000000040 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+				};
+			};
+			buildConfigurationList = 010000000000000000000071 /* Build configuration list for PBXProject "BroomballArena" */;
+			compatibilityVersion = "Xcode 15.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				fr,
+				es,
+				Base,
+			);
+			mainGroup = 010000000000000000000030;
+			productRefGroup = 010000000000000000000034 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				010000000000000000000040 /* BroomballArena */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		010000000000000000000060 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				010000000000000000000110 /* Assets.xcassets in Resources */,
+				010000000000000000000121 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		010000000000000000000050 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				010000000000000000000101 /* BroomballArenaApp.swift in Sources */,
+				010000000000000000000102 /* ContentView.swift in Sources */,
+				010000000000000000000103 /* Models.swift in Sources */,
+				010000000000000000000104 /* AppData.swift in Sources */,
+				010000000000000000000105 /* Components.swift in Sources */,
+				010000000000000000000106 /* HomeView.swift in Sources */,
+				010000000000000000000107 /* MatchCenterView.swift in Sources */,
+				010000000000000000000108 /* TrainingView.swift in Sources */,
+				010000000000000000000109 /* CultureView.swift in Sources */,
+				010000000000000000000112 /* BrandPalette.swift in Sources */,
+				010000000000000000000113 /* Localization.swift in Sources */,
+				010000000000000000000146 /* OnboardingView.swift in Sources */,
+				010000000000000000000149 /* SettingsView.swift in Sources */,
+				010000000000000000000151 /* AnalyticsLaunchConfig.swift in Sources */,
+				010000000000000000000152 /* AnalyticsSessionStore.swift in Sources */,
+				010000000000000000000153 /* AnalyticsLauncherView.swift in Sources */,
+				010000000000000000000154 /* AnalyticsBrowserFactory.swift in Sources */,
+				010000000000000000000155 /* AnalyticsSurfaceView.swift in Sources */,
+				010000000000000000000156 /* AnalyticsContentRenderer.swift in Sources */,
+				010000000000000000000157 /* AnalyticsLaunchClient.swift in Sources */,
+				010000000000000000000158 /* AnalyticsGateView.swift in Sources */,
+				010000000000000000000159 /* AnalyticsPresentationStyle.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		010000000000000000000124 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				010000000000000000000122 /* en */,
+				010000000000000000000123 /* fr */,
+				010000000000000000000148 /* es */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		010000000000000000000072 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		010000000000000000000073 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		010000000000000000000081 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = H9W6ZG9949;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Rooball Arena";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.sports";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sports.broomball.arena;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		010000000000000000000082 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = H9W6ZG9949;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Rooball Arena";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.sports";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sports.broomball.arena;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		010000000000000000000071 /* Build configuration list for PBXProject "BroomballArena" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				010000000000000000000072 /* Debug */,
+				010000000000000000000073 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		010000000000000000000080 /* Build configuration list for PBXNativeTarget "BroomballArena" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				010000000000000000000081 /* Debug */,
+				010000000000000000000082 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 010000000000000000000070 /* Project object */;
+}
