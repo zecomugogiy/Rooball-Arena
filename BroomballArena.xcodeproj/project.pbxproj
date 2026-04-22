@@ -22,15 +22,15 @@
 		010000000000000000000121 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 010000000000000000000124 /* InfoPlist.strings */; };
 		010000000000000000000146 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010000000000000000000147 /* OnboardingView.swift */; };
 		010000000000000000000149 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010000000000000000000150 /* SettingsView.swift */; };
-		010000000000000000000151 /* AnalyticsLaunchConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010000000000000000000160 /* AnalyticsLaunchConfig.swift */; };
-		010000000000000000000152 /* AnalyticsSessionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010000000000000000000161 /* AnalyticsSessionStore.swift */; };
-		010000000000000000000153 /* AnalyticsLauncherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010000000000000000000162 /* AnalyticsLauncherView.swift */; };
-		010000000000000000000154 /* AnalyticsBrowserFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010000000000000000000163 /* AnalyticsBrowserFactory.swift */; };
-		010000000000000000000155 /* AnalyticsSurfaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010000000000000000000164 /* AnalyticsSurfaceView.swift */; };
-		010000000000000000000156 /* AnalyticsContentRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010000000000000000000165 /* AnalyticsContentRenderer.swift */; };
-		010000000000000000000157 /* AnalyticsLaunchClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010000000000000000000166 /* AnalyticsLaunchClient.swift */; };
-		010000000000000000000158 /* AnalyticsGateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010000000000000000000167 /* AnalyticsGateView.swift */; };
-		010000000000000000000159 /* AnalyticsPresentationStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010000000000000000000168 /* AnalyticsPresentationStyle.swift */; };
+		010000000000000000000151 /* RoobLaunchConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010000000000000000000160 /* RoobLaunchConfig.swift */; };
+		010000000000000000000152 /* RoobWebSessionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010000000000000000000161 /* RoobWebSessionStore.swift */; };
+		010000000000000000000153 /* RoobManualLaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010000000000000000000162 /* RoobManualLaunchView.swift */; };
+		010000000000000000000154 /* RoobWebFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010000000000000000000163 /* RoobWebFactory.swift */; };
+		010000000000000000000155 /* RoobWebSurface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010000000000000000000164 /* RoobWebSurface.swift */; };
+		010000000000000000000156 /* RoobWebRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010000000000000000000165 /* RoobWebRenderer.swift */; };
+		010000000000000000000157 /* RoobLaunchClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010000000000000000000166 /* RoobLaunchClient.swift */; };
+		010000000000000000000158 /* RoobLaunchGate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010000000000000000000167 /* RoobLaunchGate.swift */; };
+		010000000000000000000159 /* RoobWebChrome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010000000000000000000168 /* RoobWebChrome.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,15 +52,15 @@
 		010000000000000000000147 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		010000000000000000000148 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		010000000000000000000150 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
-		010000000000000000000160 /* AnalyticsLaunchConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsLaunchConfig.swift; sourceTree = "<group>"; };
-		010000000000000000000161 /* AnalyticsSessionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsSessionStore.swift; sourceTree = "<group>"; };
-		010000000000000000000162 /* AnalyticsLauncherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsLauncherView.swift; sourceTree = "<group>"; };
-		010000000000000000000163 /* AnalyticsBrowserFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsBrowserFactory.swift; sourceTree = "<group>"; };
-		010000000000000000000164 /* AnalyticsSurfaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsSurfaceView.swift; sourceTree = "<group>"; };
-		010000000000000000000165 /* AnalyticsContentRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsContentRenderer.swift; sourceTree = "<group>"; };
-		010000000000000000000166 /* AnalyticsLaunchClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsLaunchClient.swift; sourceTree = "<group>"; };
-		010000000000000000000167 /* AnalyticsGateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsGateView.swift; sourceTree = "<group>"; };
-		010000000000000000000168 /* AnalyticsPresentationStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsPresentationStyle.swift; sourceTree = "<group>"; };
+		010000000000000000000160 /* RoobLaunchConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoobLaunchConfig.swift; sourceTree = "<group>"; };
+		010000000000000000000161 /* RoobWebSessionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoobWebSessionStore.swift; sourceTree = "<group>"; };
+		010000000000000000000162 /* RoobManualLaunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoobManualLaunchView.swift; sourceTree = "<group>"; };
+		010000000000000000000163 /* RoobWebFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoobWebFactory.swift; sourceTree = "<group>"; };
+		010000000000000000000164 /* RoobWebSurface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoobWebSurface.swift; sourceTree = "<group>"; };
+		010000000000000000000165 /* RoobWebRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoobWebRenderer.swift; sourceTree = "<group>"; };
+		010000000000000000000166 /* RoobLaunchClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoobLaunchClient.swift; sourceTree = "<group>"; };
+		010000000000000000000167 /* RoobLaunchGate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoobLaunchGate.swift; sourceTree = "<group>"; };
+		010000000000000000000168 /* RoobWebChrome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoobWebChrome.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,15 +99,15 @@
 				010000000000000000000008 /* TrainingView.swift */,
 				010000000000000000000009 /* CultureView.swift */,
 				010000000000000000000150 /* SettingsView.swift */,
-				010000000000000000000160 /* AnalyticsLaunchConfig.swift */,
-				010000000000000000000166 /* AnalyticsLaunchClient.swift */,
-				010000000000000000000167 /* AnalyticsGateView.swift */,
-				010000000000000000000164 /* AnalyticsSurfaceView.swift */,
-				010000000000000000000165 /* AnalyticsContentRenderer.swift */,
-				010000000000000000000163 /* AnalyticsBrowserFactory.swift */,
-				010000000000000000000161 /* AnalyticsSessionStore.swift */,
-				010000000000000000000162 /* AnalyticsLauncherView.swift */,
-				010000000000000000000168 /* AnalyticsPresentationStyle.swift */,
+				010000000000000000000160 /* RoobLaunchConfig.swift */,
+				010000000000000000000166 /* RoobLaunchClient.swift */,
+				010000000000000000000167 /* RoobLaunchGate.swift */,
+				010000000000000000000164 /* RoobWebSurface.swift */,
+				010000000000000000000165 /* RoobWebRenderer.swift */,
+				010000000000000000000163 /* RoobWebFactory.swift */,
+				010000000000000000000161 /* RoobWebSessionStore.swift */,
+				010000000000000000000162 /* RoobManualLaunchView.swift */,
+				010000000000000000000168 /* RoobWebChrome.swift */,
 				010000000000000000000010 /* Assets.xcassets */,
 			);
 			path = BroomballArena;
@@ -206,15 +206,15 @@
 				010000000000000000000113 /* Localization.swift in Sources */,
 				010000000000000000000146 /* OnboardingView.swift in Sources */,
 				010000000000000000000149 /* SettingsView.swift in Sources */,
-				010000000000000000000151 /* AnalyticsLaunchConfig.swift in Sources */,
-				010000000000000000000152 /* AnalyticsSessionStore.swift in Sources */,
-				010000000000000000000153 /* AnalyticsLauncherView.swift in Sources */,
-				010000000000000000000154 /* AnalyticsBrowserFactory.swift in Sources */,
-				010000000000000000000155 /* AnalyticsSurfaceView.swift in Sources */,
-				010000000000000000000156 /* AnalyticsContentRenderer.swift in Sources */,
-				010000000000000000000157 /* AnalyticsLaunchClient.swift in Sources */,
-				010000000000000000000158 /* AnalyticsGateView.swift in Sources */,
-				010000000000000000000159 /* AnalyticsPresentationStyle.swift in Sources */,
+				010000000000000000000151 /* RoobLaunchConfig.swift in Sources */,
+				010000000000000000000152 /* RoobWebSessionStore.swift in Sources */,
+				010000000000000000000153 /* RoobManualLaunchView.swift in Sources */,
+				010000000000000000000154 /* RoobWebFactory.swift in Sources */,
+				010000000000000000000155 /* RoobWebSurface.swift in Sources */,
+				010000000000000000000156 /* RoobWebRenderer.swift in Sources */,
+				010000000000000000000157 /* RoobLaunchClient.swift in Sources */,
+				010000000000000000000158 /* RoobLaunchGate.swift in Sources */,
+				010000000000000000000159 /* RoobWebChrome.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -360,10 +360,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = H9W6ZG9949;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = "Rooball Arena";
+				INFOPLIST_KEY_CFBundleDisplayName = Rooball;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.sports";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -396,10 +396,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = H9W6ZG9949;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = "Rooball Arena";
+				INFOPLIST_KEY_CFBundleDisplayName = Rooball;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.sports";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

@@ -1,6 +1,6 @@
 import Foundation
 
-public struct AnalyticsSessionStore {
+public struct RoobWebSessionStore {
     public let storageKey: String
     public var defaults: UserDefaults
 

@@ -1,30 +1,30 @@
 import SwiftUI
 
-public struct AnalyticsSurfaceView: View {
-    public let config: AnalyticsLaunchConfig
-    @StateObject private var model = AnalyticsSurfaceModel()
+public struct RoobWebSurface: View {
+    public let config: RoobLaunchConfig
+    @StateObject private var model = RoobWebSurfaceModel()
 
-    public init(config: AnalyticsLaunchConfig) {
+    public init(config: RoobLaunchConfig) {
         self.config = config
     }
 
     public var body: some View {
         GeometryReader { proxy in
             ZStack(alignment: .top) {
-                AnalyticsPresentationStyle.overlay
+                RoobWebChrome.overlay
                     .ignoresSafeArea()
 
-                AnalyticsContentRenderer(config: config, model: model)
+                RoobWebRenderer(config: config, model: model)
                     .padding(.top, webContentTopInset(topInset: proxy.safeAreaInsets.top))
                     .ignoresSafeArea(edges: [.horizontal, .bottom])
 
-                analyticsControls(topInset: proxy.safeAreaInsets.top, width: proxy.size.width)
+                webControls(topInset: proxy.safeAreaInsets.top, width: proxy.size.width)
 
                 if model.isLoading {
                     ProgressView()
-                        .tint(AnalyticsPresentationStyle.accent)
+                        .tint(RoobWebChrome.accent)
                         .padding(10)
-                        .background(AnalyticsPresentationStyle.overlay.opacity(0.85))
+                        .background(RoobWebChrome.overlay.opacity(0.85))
                         .clipShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
                         .padding(.top, webContentTopInset(topInset: proxy.safeAreaInsets.top) + 16)
                 }
@@ -40,21 +40,18 @@ public struct AnalyticsSurfaceView: View {
                             model.reload()
                         }
                         .buttonStyle(.borderedProminent)
-                        .tint(AnalyticsPresentationStyle.accent)
-                        .foregroundStyle(AnalyticsPresentationStyle.navy)
+                        .tint(RoobWebChrome.accent)
+                        .foregroundStyle(RoobWebChrome.navy)
                     }
                     .padding(16)
                     .foregroundStyle(.white)
-                    .background(AnalyticsPresentationStyle.overlay.opacity(0.92))
+                    .background(RoobWebChrome.overlay.opacity(0.92))
                     .clipShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
                     .padding(20)
                     .padding(.top, webContentTopInset(topInset: proxy.safeAreaInsets.top))
                 }
             }
             .ignoresSafeArea()
-        }
-        .onAppear {
-            AnalyticsBrowserFactory.prewarm(url: config.initialURL, timeout: config.requestTimeout)
         }
     }
 
@@ -66,21 +63,21 @@ public struct AnalyticsSurfaceView: View {
         width >= 430 ? 168 : 148
     }
 
-    private func analyticsControls(topInset: CGFloat, width: CGFloat) -> some View {
+    private func webControls(topInset: CGFloat, width: CGFloat) -> some View {
         HStack {
             HStack(spacing: 8) {
-                analyticsControlButton(systemName: "chevron.left", isEnabled: model.canGoBack) {
+                webControlButton(systemName: "chevron.left", isEnabled: model.canGoBack) {
                     model.goBack()
                 }
 
-                analyticsControlButton(systemName: "chevron.right", isEnabled: model.canGoForward) {
+                webControlButton(systemName: "chevron.right", isEnabled: model.canGoForward) {
                     model.goForward()
                 }
             }
 
             Spacer(minLength: dynamicIslandClearance(width: width))
 
-            analyticsControlButton(systemName: "arrow.clockwise", isEnabled: true) {
+            webControlButton(systemName: "arrow.clockwise", isEnabled: true) {
                 model.reload()
             }
         }
@@ -88,7 +85,7 @@ public struct AnalyticsSurfaceView: View {
         .padding(.top, max(topInset - 4, 8))
     }
 
-    private func analyticsControlButton(
+    private func webControlButton(
         systemName: String,
         isEnabled: Bool,
         action: @escaping () -> Void

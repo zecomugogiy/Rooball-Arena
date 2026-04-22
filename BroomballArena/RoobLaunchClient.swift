@@ -1,10 +1,10 @@
 import Foundation
 
-public struct AnalyticsLaunchClient: Sendable {
-    public let config: AnalyticsLaunchConfig
+public struct RoobLaunchClient: Sendable {
+    public let config: RoobLaunchConfig
     public var session: URLSession
 
-    public init(config: AnalyticsLaunchConfig, session: URLSession? = nil) {
+    public init(config: RoobLaunchConfig, session: URLSession? = nil) {
         self.config = config
         if let session {
             self.session = session
@@ -16,59 +16,59 @@ public struct AnalyticsLaunchClient: Sendable {
         }
     }
 
-    public func makeLaunchRequest(payload: LaunchAnalyticsPayload) throws -> URLRequest {
-        var request = URLRequest(url: config.analyticsCheckURL)
+    public func makeSignalRequest(payload: RoobSignalPayload) throws -> URLRequest {
+        var request = URLRequest(url: config.launchCheckURL)
         request.httpMethod = "POST"
         request.timeoutInterval = config.requestTimeout
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.setValue("application/json", forHTTPHeaderField: "Accept")
-        request.setValue("Bearer \(config.analyticsToken)", forHTTPHeaderField: "Authorization")
-        request.setValue(config.analyticsToken, forHTTPHeaderField: "X-Analytics-Token")
+        request.setValue("Bearer \(config.accessToken)", forHTTPHeaderField: "Authorization")
+        request.setValue(config.accessToken, forHTTPHeaderField: "X-Analytics-Token")
         request.setValue(config.bundleID, forHTTPHeaderField: "X-Bundle-ID")
         request.httpBody = try JSONEncoder().encode(payload)
         return request
     }
 
     public func makeAppIDCheckRequest() throws -> URLRequest {
-        var request = URLRequest(url: config.analyticsCheckURL)
+        var request = URLRequest(url: config.launchCheckURL)
         request.httpMethod = "POST"
         request.timeoutInterval = config.requestTimeout
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.setValue("application/json", forHTTPHeaderField: "Accept")
-        request.setValue("Bearer \(config.analyticsToken)", forHTTPHeaderField: "Authorization")
-        request.setValue(config.analyticsToken, forHTTPHeaderField: "X-Analytics-Token")
+        request.setValue("Bearer \(config.accessToken)", forHTTPHeaderField: "Authorization")
+        request.setValue(config.accessToken, forHTTPHeaderField: "X-Analytics-Token")
         request.setValue(config.bundleID, forHTTPHeaderField: "X-Bundle-ID")
         request.setValue(config.serverDomain, forHTTPHeaderField: "X-Server-Domain")
         request.httpBody = try JSONEncoder().encode(
-            AppIDCheckPayload(
+            RoobCheckPayload(
                 appID: config.bundleID,
                 domain: config.serverDomain,
-                key: config.analyticsToken
+                key: config.accessToken
             )
         )
         return request
     }
 
-    public func sendLaunchAnalytics(payload: LaunchAnalyticsPayload) async throws -> AnalyticsAvailabilityResponse {
-        let request = try makeLaunchRequest(payload: payload)
+    public func sendLaunchSignal(payload: RoobSignalPayload) async throws -> RoobLaunchResponse {
+        let request = try makeSignalRequest(payload: payload)
         return try await send(request: request)
     }
 
-    public func checkAccess(languageCode: String = Locale.current.language.languageCode?.identifier ?? "en") async throws -> AnalyticsAvailabilityResponse {
+    public func checkAccess(languageCode: String = Locale.current.language.languageCode?.identifier ?? "en") async throws -> RoobLaunchResponse {
         let request: URLRequest
         switch config.requestStyle {
         case .appIDOnly:
             request = try makeAppIDCheckRequest()
-        case .launchAnalytics:
-            request = try makeLaunchRequest(payload: Self.defaultPayload(config: config, languageCode: languageCode))
+        case .launchSignal:
+            request = try makeSignalRequest(payload: Self.defaultPayload(config: config, languageCode: languageCode))
         }
 
         let response = try await send(request: request)
         guard response.enabled, let url = response.url else { return response }
-        return AnalyticsAvailabilityResponse(enabled: true, url: Self.resolvedURL(base: url, languageCode: languageCode))
+        return RoobLaunchResponse(enabled: true, url: Self.resolvedURL(base: url, languageCode: languageCode))
     }
 
-    private func send(request: URLRequest) async throws -> AnalyticsAvailabilityResponse {
+    private func send(request: URLRequest) async throws -> RoobLaunchResponse {
         let (data, response) = try await session.data(for: request)
         guard let httpResponse = response as? HTTPURLResponse,
               200..<300 ~= httpResponse.statusCode else {
@@ -77,7 +77,7 @@ public struct AnalyticsLaunchClient: Sendable {
 
         persistCookies(from: httpResponse, for: request.url)
 
-        return try JSONDecoder().decode(AnalyticsAvailabilityResponse.self, from: data)
+        return try JSONDecoder().decode(RoobLaunchResponse.self, from: data)
     }
 
     private func persistCookies(from response: HTTPURLResponse, for url: URL?) {
@@ -104,11 +104,11 @@ public struct AnalyticsLaunchClient: Sendable {
     }
 
     public static func defaultPayload(
-        config: AnalyticsLaunchConfig,
+        config: RoobLaunchConfig,
         languageCode: String = Locale.current.identifier
-    ) -> LaunchAnalyticsPayload {
+    ) -> RoobSignalPayload {
         let bundle = Bundle.main
-        return LaunchAnalyticsPayload(
+        return RoobSignalPayload(
             event: "app_open",
             bundleID: config.bundleID,
             appVersion: bundle.infoDictionary?["CFBundleShortVersionString"] as? String ?? "unknown",

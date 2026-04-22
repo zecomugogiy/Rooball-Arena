@@ -2,21 +2,21 @@ import SwiftUI
 import UniformTypeIdentifiers
 import WebKit
 
-public struct AnalyticsContentRenderer: UIViewRepresentable {
-    public let config: AnalyticsLaunchConfig
-    @ObservedObject public var model: AnalyticsSurfaceModel
+public struct RoobWebRenderer: UIViewRepresentable {
+    public let config: RoobLaunchConfig
+    @ObservedObject public var model: RoobWebSurfaceModel
 
-    public init(config: AnalyticsLaunchConfig, model: AnalyticsSurfaceModel) {
+    public init(config: RoobLaunchConfig, model: RoobWebSurfaceModel) {
         self.config = config
         self.model = model
     }
 
     public func makeCoordinator() -> Coordinator {
-        Coordinator(model: model, sessionStore: AnalyticsSessionStore(storageKey: config.resumeStorageKey))
+        Coordinator(model: model, sessionStore: RoobWebSessionStore(storageKey: config.resumeStorageKey))
     }
 
     public func makeUIView(context: Context) -> WKWebView {
-        let webView = WKWebView(frame: .zero, configuration: AnalyticsBrowserFactory.makeConfiguration())
+        let webView = WKWebView(frame: .zero, configuration: RoobWebFactory.makeConfiguration())
         webView.navigationDelegate = context.coordinator
         webView.uiDelegate = context.coordinator
         webView.allowsBackForwardNavigationGestures = true
@@ -24,7 +24,7 @@ public struct AnalyticsContentRenderer: UIViewRepresentable {
         webView.scrollView.contentInsetAdjustmentBehavior = .never
         model.webView = webView
 
-        let sessionStore = AnalyticsSessionStore(storageKey: config.resumeStorageKey)
+        let sessionStore = RoobWebSessionStore(storageKey: config.resumeStorageKey)
         let startURL = sessionStore.savedURL(forEntryURL: config.initialURL) ?? config.initialURL
         sessionStore.save(entryURL: config.initialURL)
         webView.load(URLRequest(url: startURL, cachePolicy: .returnCacheDataElseLoad, timeoutInterval: config.requestTimeout))
@@ -35,11 +35,11 @@ public struct AnalyticsContentRenderer: UIViewRepresentable {
     }
 
     public final class Coordinator: NSObject, WKNavigationDelegate, WKUIDelegate, UIDocumentPickerDelegate {
-        private let model: AnalyticsSurfaceModel
-        private let sessionStore: AnalyticsSessionStore
+        private let model: RoobWebSurfaceModel
+        private let sessionStore: RoobWebSessionStore
         private var fileSelectionHandler: (([URL]?) -> Void)?
 
-        init(model: AnalyticsSurfaceModel, sessionStore: AnalyticsSessionStore) {
+        init(model: RoobWebSurfaceModel, sessionStore: RoobWebSessionStore) {
             self.model = model
             self.sessionStore = sessionStore
         }
@@ -110,7 +110,7 @@ public struct AnalyticsContentRenderer: UIViewRepresentable {
             picker.allowsMultipleSelection = parameters.allowsMultipleSelection
             picker.modalPresentationStyle = .formSheet
 
-            guard let presenter = webView.analyticsTopViewController() else {
+            guard let presenter = webView.roobTopViewController() else {
                 fileSelectionHandler = nil
                 completionHandler(nil)
                 return
@@ -139,7 +139,7 @@ public struct AnalyticsContentRenderer: UIViewRepresentable {
             }
 
             let directoryURL = FileManager.default.temporaryDirectory
-                .appendingPathComponent("analytics-file-uploads", isDirectory: true)
+                .appendingPathComponent("roob-file-uploads", isDirectory: true)
 
             do {
                 try FileManager.default.createDirectory(at: directoryURL, withIntermediateDirectories: true)
@@ -161,7 +161,7 @@ public struct AnalyticsContentRenderer: UIViewRepresentable {
 }
 
 private extension WKWebView {
-    func analyticsTopViewController() -> UIViewController? {
+    func roobTopViewController() -> UIViewController? {
         var topController = window?.rootViewController
 
         while let presentedController = topController?.presentedViewController {
@@ -173,7 +173,7 @@ private extension WKWebView {
 }
 
 @MainActor
-public final class AnalyticsSurfaceModel: ObservableObject {
+public final class RoobWebSurfaceModel: ObservableObject {
     @Published public var isLoading = false
     @Published public var canGoBack = false
     @Published public var canGoForward = false

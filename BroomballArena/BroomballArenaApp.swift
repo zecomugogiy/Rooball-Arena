@@ -6,7 +6,7 @@ struct BroomballArenaApp: App {
 
     var body: some Scene {
         WindowGroup {
-            AnalyticsGateView(
+            RoobLaunchGate(
                 config: .broomballArena,
                 languageCode: AppLanguage.from(languageRawValue).localeCode,
                 requestReviewBeforeCheck: false

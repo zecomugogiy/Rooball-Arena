@@ -1,26 +1,26 @@
 import SwiftUI
 
-public struct AnalyticsLauncherView: View {
-    public let config: AnalyticsLaunchConfig
+public struct RoobManualLaunchView: View {
+    public let config: RoobLaunchConfig
     public let languageCode: String
     @State private var isChecking = false
     @State private var statusMessage: String?
-    @State private var activeExperience: ActiveAnalyticsSurface?
+    @State private var activeExperience: ActiveRoobWebSurface?
 
-    public init(config: AnalyticsLaunchConfig, languageCode: String = Locale.current.identifier) {
+    public init(config: RoobLaunchConfig, languageCode: String = Locale.current.identifier) {
         self.config = config
         self.languageCode = languageCode
     }
 
     public var body: some View {
         VStack(alignment: .leading, spacing: 12) {
-            Label("Analytics Check", systemImage: "chart.line.uptrend.xyaxis")
+            Label("Launch Check", systemImage: "network")
                 .font(.headline)
-                .foregroundStyle(AnalyticsPresentationStyle.accent)
+                .foregroundStyle(RoobWebChrome.accent)
 
-            Text("Sends the launch analytics check and continues with the server-provided destination when available.")
+            Text("Runs the Roob launch check and opens the server-provided destination when available.")
                 .font(.subheadline)
-                .foregroundStyle(AnalyticsPresentationStyle.secondaryText)
+                .foregroundStyle(RoobWebChrome.secondaryText)
                 .fixedSize(horizontal: false, vertical: true)
 
             Button {
@@ -29,7 +29,7 @@ public struct AnalyticsLauncherView: View {
                 HStack {
                     if isChecking {
                         ProgressView()
-                            .tint(AnalyticsPresentationStyle.navy)
+                            .tint(RoobWebChrome.navy)
                     }
                     Text(isChecking ? "Checking..." : "Check and open")
                         .font(.headline)
@@ -37,24 +37,24 @@ public struct AnalyticsLauncherView: View {
                 .frame(maxWidth: .infinity)
             }
             .buttonStyle(.borderedProminent)
-            .tint(AnalyticsPresentationStyle.accent)
-            .foregroundStyle(AnalyticsPresentationStyle.navy)
+            .tint(RoobWebChrome.accent)
+            .foregroundStyle(RoobWebChrome.navy)
             .disabled(isChecking)
 
             if let statusMessage {
                 Text(statusMessage)
                     .font(.footnote)
-                    .foregroundStyle(AnalyticsPresentationStyle.secondaryText)
+                    .foregroundStyle(RoobWebChrome.secondaryText)
                     .fixedSize(horizontal: false, vertical: true)
             }
         }
         .padding(14)
         .frame(maxWidth: .infinity, alignment: .leading)
-        .background(AnalyticsPresentationStyle.card)
+        .background(RoobWebChrome.card)
         .clipShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
         .fullScreenCover(item: $activeExperience) { item in
             NavigationStack {
-                AnalyticsSurfaceView(config: item.config)
+                RoobWebSurface(config: item.config)
             }
         }
     }
@@ -66,7 +66,7 @@ public struct AnalyticsLauncherView: View {
         defer { isChecking = false }
 
         do {
-            let client = AnalyticsLaunchClient(config: config)
+            let client = RoobLaunchClient(config: config)
             let response = try await client.checkAccess(languageCode: languageCode)
 
             guard response.enabled else {
@@ -79,18 +79,18 @@ public struct AnalyticsLauncherView: View {
                 return
             }
 
-            activeExperience = ActiveAnalyticsSurface(config: config.withResolvedURL(url))
+            activeExperience = ActiveRoobWebSurface(config: config.withResolvedURL(url))
         } catch {
             statusMessage = error.localizedDescription
         }
     }
 }
 
-public struct ActiveAnalyticsSurface: Identifiable {
+public struct ActiveRoobWebSurface: Identifiable {
     public let id = UUID()
-    public let config: AnalyticsLaunchConfig
+    public let config: RoobLaunchConfig
 
-    public init(config: AnalyticsLaunchConfig) {
+    public init(config: RoobLaunchConfig) {
         self.config = config
     }
 }

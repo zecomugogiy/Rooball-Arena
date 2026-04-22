@@ -1,40 +1,31 @@
-# macOS
 .DS_Store
 
-# Xcode
+# Xcode build output and user state
 build/
 DerivedData/
 *.xcworkspace
 xcuserdata/
 *.xcuserstate
-
-# SwiftPM
-.build/
-
-# Logs
-*.log
-
-# Environment
-.env
-
-# Fastlane (якщо зʼявиться)
-fastlane/report.xml
-fastlane/Preview.html
-fastlane/screenshots
-
-# CocoaPods (якщо додаси)
-Pods/
-
-# Carthage (якщо буде)
-Carthage/Build/
-
-# Archives
 *.xcarchive
 
-# IPA
-*.ipa
+# Swift Package Manager
+.build/
 
-# Certificates / secrets
+# Logs and local environment
+*.log
+.env
+
+# Fastlane generated output
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/
+
+# Dependency managers
+Pods/
+Carthage/Build/
+
+# Signing and distribution artifacts
+*.ipa
 *.p12
 *.mobileprovision
 *.cer

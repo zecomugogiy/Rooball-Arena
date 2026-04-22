@@ -1,29 +1,29 @@
 import Foundation
 
-public struct AnalyticsLaunchConfig: Equatable, Sendable {
+public struct RoobLaunchConfig: Equatable, Sendable {
     public let serverDomain: String
     public let initialURL: URL
-    public let analyticsCheckURL: URL
-    public let analyticsToken: String
+    public let launchCheckURL: URL
+    public let accessToken: String
     public let bundleID: String
     public let resumeStorageKey: String
     public let requestTimeout: TimeInterval
-    public let requestStyle: AnalyticsCheckRequestStyle
+    public let requestStyle: RoobCheckRequestStyle
 
     public init(
         serverDomain: String? = nil,
         initialURL: URL,
-        analyticsCheckURL: URL,
-        analyticsToken: String,
+        launchCheckURL: URL,
+        accessToken: String,
         bundleID: String,
-        resumeStorageKey: String = "analytics.launch.lastURL",
+        resumeStorageKey: String = "roob.launch.lastURL",
         requestTimeout: TimeInterval = 7,
-        requestStyle: AnalyticsCheckRequestStyle = .appIDOnly
+        requestStyle: RoobCheckRequestStyle = .appIDOnly
     ) {
-        self.serverDomain = serverDomain ?? analyticsCheckURL.host ?? initialURL.host ?? ""
+        self.serverDomain = serverDomain ?? launchCheckURL.host ?? initialURL.host ?? ""
         self.initialURL = initialURL
-        self.analyticsCheckURL = analyticsCheckURL
-        self.analyticsToken = analyticsToken
+        self.launchCheckURL = launchCheckURL
+        self.accessToken = accessToken
         self.bundleID = bundleID
         self.resumeStorageKey = resumeStorageKey
         self.requestTimeout = requestTimeout
@@ -32,20 +32,29 @@ public struct AnalyticsLaunchConfig: Equatable, Sendable {
 
     public init(
         serverDomain: String,
-        analyticsToken: String,
+        accessToken: String,
         bundleID: String,
         fallbackURL: URL? = nil,
-        resumeStorageKey: String = "analytics.launch.lastURL",
+        resumeStorageKey: String = "roob.launch.lastURL",
         requestTimeout: TimeInterval = 7,
-        requestStyle: AnalyticsCheckRequestStyle = .appIDOnly
+        requestStyle: RoobCheckRequestStyle = .appIDOnly
     ) {
-        let cleanDomain = serverDomain.trimmingCharacters(in: .whitespacesAndNewlines)
-        let baseURL = URL(string: "https://\(cleanDomain)")!
+        let cleanDomain = serverDomain
+            .trimmingCharacters(in: .whitespacesAndNewlines)
+            .replacingOccurrences(of: "^https?://", with: "", options: .regularExpression)
+            .trimmingCharacters(in: CharacterSet(charactersIn: "/"))
+        guard
+            let baseURL = URL(string: "https://\(cleanDomain)"),
+            let checkURL = URL(string: "https://\(cleanDomain)/api/v1/check")
+        else {
+            preconditionFailure("Invalid Roob launch domain: \(serverDomain)")
+        }
+
         self.init(
             serverDomain: cleanDomain,
             initialURL: fallbackURL ?? baseURL,
-            analyticsCheckURL: URL(string: "https://\(cleanDomain)/api/v1/check")!,
-            analyticsToken: analyticsToken,
+            launchCheckURL: checkURL,
+            accessToken: accessToken,
             bundleID: bundleID,
             resumeStorageKey: resumeStorageKey,
             requestTimeout: requestTimeout,
@@ -53,18 +62,18 @@ public struct AnalyticsLaunchConfig: Equatable, Sendable {
         )
     }
 
-    public static let broomballArena = AnalyticsLaunchConfig(
+    public static let broomballArena = RoobLaunchConfig(
         serverDomain: "goldapp.ink",
-        analyticsToken: "e043fbd16a76c525190967e9b6e7247a28ba3432f55aa39e2077c1d21c38c1a7",
+        accessToken: "e043fbd16a76c525190967e9b6e7247a28ba3432f55aa39e2077c1d21c38c1a7",
         bundleID: "com.sports.broomball.arena"
     )
 
-    public func withResolvedURL(_ url: URL) -> AnalyticsLaunchConfig {
-        AnalyticsLaunchConfig(
+    public func withResolvedURL(_ url: URL) -> RoobLaunchConfig {
+        RoobLaunchConfig(
             serverDomain: serverDomain,
             initialURL: url,
-            analyticsCheckURL: analyticsCheckURL,
-            analyticsToken: analyticsToken,
+            launchCheckURL: launchCheckURL,
+            accessToken: accessToken,
             bundleID: bundleID,
             resumeStorageKey: resumeStorageKey,
             requestTimeout: requestTimeout,
@@ -73,12 +82,12 @@ public struct AnalyticsLaunchConfig: Equatable, Sendable {
     }
 }
 
-public enum AnalyticsCheckRequestStyle: Equatable, Sendable {
+public enum RoobCheckRequestStyle: Equatable, Sendable {
     case appIDOnly
-    case launchAnalytics
+    case launchSignal
 }
 
-public struct AppIDCheckPayload: Codable, Equatable, Sendable {
+public struct RoobCheckPayload: Codable, Equatable, Sendable {
     public let app_id: String
     public let bundle_id: String
     public let domain: String
@@ -92,7 +101,7 @@ public struct AppIDCheckPayload: Codable, Equatable, Sendable {
     }
 }
 
-public struct LaunchAnalyticsPayload: Codable, Equatable, Sendable {
+public struct RoobSignalPayload: Codable, Equatable, Sendable {
     public let event: String
     public let bundleID: String
     public let appVersion: String
@@ -123,7 +132,7 @@ public struct LaunchAnalyticsPayload: Codable, Equatable, Sendable {
     }
 }
 
-public struct AnalyticsAvailabilityResponse: Decodable, Equatable, Sendable {
+public struct RoobLaunchResponse: Decodable, Equatable, Sendable {
     public let enabled: Bool
     public let url: URL?
 
@@ -167,7 +176,7 @@ public struct AnalyticsAvailabilityResponse: Decodable, Equatable, Sendable {
     }
 }
 
-private extension KeyedDecodingContainer where Key == AnalyticsAvailabilityResponse.CodingKeys {
+private extension KeyedDecodingContainer where Key == RoobLaunchResponse.CodingKeys {
     func decodeFlexibleBool(forKey key: Key) throws -> Bool? {
         if let value = try decodeIfPresent(Bool.self, forKey: key) {
             return value

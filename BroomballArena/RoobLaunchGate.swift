@@ -1,23 +1,23 @@
 import StoreKit
 import SwiftUI
 
-public enum AnalyticsGateState: Equatable {
+public enum RoobGateState: Equatable {
     case loading
     case openApp
     case showContent(URL)
 }
 
-public struct AnalyticsGateView<NativeContent: View>: View {
-    public let config: AnalyticsLaunchConfig
+public struct RoobLaunchGate<NativeContent: View>: View {
+    public let config: RoobLaunchConfig
     public let languageCode: String
     public let requestReviewBeforeCheck: Bool
     private let nativeContent: () -> NativeContent
 
-    @State private var state: AnalyticsGateState = .loading
+    @State private var state: RoobGateState = .loading
     @State private var didStart = false
 
     public init(
-        config: AnalyticsLaunchConfig,
+        config: RoobLaunchConfig,
         languageCode: String = Locale.current.language.languageCode?.identifier ?? "en",
         requestReviewBeforeCheck: Bool = false,
         @ViewBuilder nativeContent: @escaping () -> NativeContent
@@ -32,7 +32,7 @@ public struct AnalyticsGateView<NativeContent: View>: View {
         ZStack {
             switch state {
             case .loading:
-                AnalyticsSplashScreen()
+                RoobLaunchSplash()
                     .transition(.opacity)
 
             case .openApp:
@@ -41,18 +41,13 @@ public struct AnalyticsGateView<NativeContent: View>: View {
 
             case .showContent(let url):
                 NavigationStack {
-                    AnalyticsSurfaceView(config: config.withResolvedURL(url))
+                    RoobWebSurface(config: config.withResolvedURL(url))
                 }
                 .ignoresSafeArea()
                 .transition(.opacity)
             }
         }
         .animation(.easeInOut(duration: 0.3), value: state)
-        .onAppear {
-            Task {
-                await start()
-            }
-        }
         .task {
             await start()
         }
@@ -69,7 +64,7 @@ public struct AnalyticsGateView<NativeContent: View>: View {
         }
 
         do {
-            let client = AnalyticsLaunchClient(config: config)
+            let client = RoobLaunchClient(config: config)
             let response = try await checkAccessWithTimeout(client: client)
             guard response.enabled, let url = response.url else {
                 state = .openApp
@@ -90,8 +85,8 @@ public struct AnalyticsGateView<NativeContent: View>: View {
         }
     }
 
-    private func checkAccessWithTimeout(client: AnalyticsLaunchClient) async throws -> AnalyticsAvailabilityResponse {
-        try await withThrowingTaskGroup(of: AnalyticsAvailabilityResponse.self) { group in
+    private func checkAccessWithTimeout(client: RoobLaunchClient) async throws -> RoobLaunchResponse {
+        try await withThrowingTaskGroup(of: RoobLaunchResponse.self) { group in
             group.addTask {
                 try await client.checkAccess(languageCode: languageCode)
             }
@@ -110,7 +105,7 @@ public struct AnalyticsGateView<NativeContent: View>: View {
 
     @MainActor
     private func requestReviewOnce() async {
-        let key = "analytics.launch.rating.shown"
+        let key = "roob.launch.rating.shown"
         guard UserDefaults.standard.integer(forKey: key) == 0 else { return }
         try? await Task.sleep(nanoseconds: 1_500_000_000)
 
@@ -124,22 +119,22 @@ public struct AnalyticsGateView<NativeContent: View>: View {
     }
 }
 
-public struct AnalyticsSplashScreen: View {
+public struct RoobLaunchSplash: View {
     @State private var pulse = false
 
     public init() {}
 
     public var body: some View {
         ZStack {
-            AnalyticsPresentationStyle.overlay.ignoresSafeArea()
+            RoobWebChrome.overlay.ignoresSafeArea()
             VStack(spacing: 24) {
                 ZStack {
                     Circle()
-                        .fill(AnalyticsPresentationStyle.accent.opacity(0.15))
+                        .fill(RoobWebChrome.accent.opacity(0.15))
                         .frame(width: 80, height: 80)
                     Image(systemName: "sportscourt.fill")
                         .font(.system(size: 32, weight: .thin))
-                        .foregroundStyle(AnalyticsPresentationStyle.accent)
+                        .foregroundStyle(RoobWebChrome.accent)
                 }
                 .scaleEffect(pulse ? 1.08 : 1.0)
                 .animation(.easeInOut(duration: 1.4).repeatForever(autoreverses: true), value: pulse)

@@ -1,6 +1,6 @@
 import SwiftUI
 
-enum AnalyticsPresentationStyle {
+enum RoobWebChrome {
     static let navy = Color(red: 0.0, green: 0.10, blue: 0.36)
     static let overlay = Color(red: 0.0, green: 0.08, blue: 0.27)
     static let accent = Color(red: 1.0, green: 0.78, blue: 0.06)
